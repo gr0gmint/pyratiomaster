@@ -1,0 +1,10 @@
+Prerequisites:
+You need the Twisted framework
+
+To launch:
+python ratiomaster.py
+
+
+Direct torrent-client to use HTTP proxy localhost:8888
+
+Web-interface is also at   http://localhost:8888/  
