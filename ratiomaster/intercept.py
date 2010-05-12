@@ -72,6 +72,11 @@ class InterceptProxyRequest(Request):
             uploaded = query['uploaded'][0]
             event = query.get('event', [''])[0]
         except: #not an announce request
+            rest = urlparse.urlunparse(('','') + parsed[2:])
+            if not rest:
+                rest = rest + '/'
+            clientFactory = class_(self.method, rest, self.clientproto, headers, s, self)
+            self.reactor.connectTCP(host, port, clientFactory)
             return
         try:
             ses = trackersessions.get(info_hash)
